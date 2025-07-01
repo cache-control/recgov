@@ -49,7 +49,7 @@ searchKeywords() {
     url="$BASEURL/api/search?q=${encoded_keywords}&exact=false&size=30"
 
     jq_recipe='.results[]'
-    jq_recipe+='|{entity_id, entity_type, name, city, state_code}'
+    jq_recipe+='|{entity_id, entity_type, name, parent_name, city, state_code}'
 
     "${CURL[@]}" "$url" \
         | jq "$jq_recipe" \
